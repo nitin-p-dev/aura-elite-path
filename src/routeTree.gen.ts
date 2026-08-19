@@ -10,33 +10,60 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as MentorsRouteImport } from './routes/mentors'
+import { Route as MentorsIndexRouteImport } from './routes/mentors.index'
+import { Route as MentorsMentorIdRouteImport } from './routes/mentors.$mentorId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MentorsRoute = MentorsRouteImport.update({
+  id: '/mentors',
+  path: '/mentors',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentorsIndexRoute = MentorsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => MentorsRoute,
+} as any)
+const MentorsMentorIdRoute = MentorsMentorIdRouteImport.update({
+  id: '/$mentorId',
+  path: '/$mentorId',
+  getParentRoute: () => MentorsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/mentors': typeof MentorsRouteWithChildren
+  '/mentors/$mentorId': typeof MentorsMentorIdRoute
+  '/mentors/': typeof MentorsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/mentors/$mentorId': typeof MentorsMentorIdRoute
+  '/mentors': typeof MentorsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/mentors': typeof MentorsRouteWithChildren
+  '/mentors/$mentorId': typeof MentorsMentorIdRoute
+  '/mentors/': typeof MentorsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/mentors' | '/mentors/$mentorId' | '/mentors/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/mentors/$mentorId' | '/mentors'
+  id: '__root__' | '/' | '/mentors' | '/mentors/$mentorId' | '/mentors/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MentorsRoute: typeof MentorsRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +75,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mentors': {
+      id: '/mentors'
+      path: '/mentors'
+      fullPath: '/mentors'
+      preLoaderRoute: typeof MentorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentors/': {
+      id: '/mentors/'
+      path: '/'
+      fullPath: '/mentors/'
+      preLoaderRoute: typeof MentorsIndexRouteImport
+      parentRoute: typeof MentorsRoute
+    }
+    '/mentors/$mentorId': {
+      id: '/mentors/$mentorId'
+      path: '/$mentorId'
+      fullPath: '/mentors/$mentorId'
+      preLoaderRoute: typeof MentorsMentorIdRouteImport
+      parentRoute: typeof MentorsRoute
+    }
   }
 }
 
+interface MentorsRouteChildren {
+  MentorsMentorIdRoute: typeof MentorsMentorIdRoute
+  MentorsIndexRoute: typeof MentorsIndexRoute
+}
+
+const MentorsRouteChildren: MentorsRouteChildren = {
+  MentorsMentorIdRoute: MentorsMentorIdRoute,
+  MentorsIndexRoute: MentorsIndexRoute,
+}
+
+const MentorsRouteWithChildren =
+  MentorsRoute._addFileChildren(MentorsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MentorsRoute: MentorsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
