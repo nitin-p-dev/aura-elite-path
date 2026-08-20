@@ -78,7 +78,7 @@ function HowItWorks() {
             className="glass h-fit rounded-[2rem] p-8 lg:sticky lg:top-28"
           >
             <span className="font-display text-5xl text-gold/60">0{active + 1}</span>
-            <h2 className="mt-4 text-2xl font-semibold">{steps[active].title}</h2>
+            <h2 className="mt-4 text-2xl font-semibold">{steps[active]?.title}</h2>
             <p className="mt-3 leading-relaxed text-foreground/85">{detail[active]}</p>
             <Button asChild variant="gold" size="lg" className="mt-8">
               <Link to="/contact">Start with a free call</Link>
