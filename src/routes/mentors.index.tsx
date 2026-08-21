@@ -32,6 +32,8 @@ function MentorHub() {
   const { college } = Route.useSearch();
   const navigate = Route.useNavigate();
   const [filter, setFilter] = useState<ExamKey | "ALL">("ALL");
+  const colleges = Array.from(new Set(mentors.map((m) => m.college))).sort();
+
   const list = mentors.filter(
     (m) => (filter === "ALL" || m.exam === filter) && (!college || m.college === college),
   );
@@ -62,6 +64,35 @@ function MentorHub() {
           ))}
         </div>
 
+        <div className="mt-4 flex flex-wrap items-center gap-2">
+          <span className="mr-1 text-xs uppercase tracking-wide text-muted-foreground">
+            Institution
+          </span>
+          <button
+            onClick={() => navigate({ search: {} })}
+            className={`rounded-full px-4 py-2 text-xs font-medium transition-all duration-300 ${
+              !college
+                ? "bg-accent/20 text-gold"
+                : "glass text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            All
+          </button>
+          {colleges.map((c) => (
+            <button
+              key={c}
+              onClick={() => navigate({ search: { college: c } })}
+              className={`rounded-full px-4 py-2 text-xs font-medium transition-all duration-300 ${
+                college === c
+                  ? "bg-accent/20 text-gold"
+                  : "glass text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
+
         {college && (
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <span className="text-sm text-muted-foreground">Filtered by institution</span>
@@ -73,6 +104,7 @@ function MentorHub() {
             </button>
           </div>
         )}
+
 
         {list.length === 0 && (
           <p className="mt-10 text-muted-foreground">
