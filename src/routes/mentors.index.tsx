@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, X } from "lucide-react";
 import { AuraBackdrop } from "@/components/aura-backdrop";
 import { mentors, exams, type ExamKey } from "@/lib/aura-data";
 
 export const Route = createFileRoute("/mentors/")({
+  validateSearch: (search: Record<string, unknown>): { college?: string } => {
+    const raw = search["college"];
+    return typeof raw === "string" && raw ? { college: raw } : {};
+  },
   head: () => ({
     meta: [
       { title: "Mentor Hub — Aura Mentorship" },
@@ -25,8 +29,12 @@ export const Route = createFileRoute("/mentors/")({
 });
 
 function MentorHub() {
+  const { college } = Route.useSearch();
+  const navigate = Route.useNavigate();
   const [filter, setFilter] = useState<ExamKey | "ALL">("ALL");
-  const list = filter === "ALL" ? mentors : mentors.filter((m) => m.exam === filter);
+  const list = mentors.filter(
+    (m) => (filter === "ALL" || m.exam === filter) && (!college || m.college === college),
+  );
 
   return (
     <div className="relative px-4 pb-16 pt-14 sm:px-6">
@@ -53,6 +61,24 @@ function MentorHub() {
             </button>
           ))}
         </div>
+
+        {college && (
+          <div className="mt-6 flex flex-wrap items-center gap-3">
+            <span className="text-sm text-muted-foreground">Filtered by institution</span>
+            <button
+              onClick={() => navigate({ search: {} })}
+              className="glass inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-gold transition-colors hover:bg-accent/20"
+            >
+              {college} <X className="h-3.5 w-3.5" />
+            </button>
+          </div>
+        )}
+
+        {list.length === 0 && (
+          <p className="mt-10 text-muted-foreground">
+            No mentors match this combination yet — try clearing a filter.
+          </p>
+        )}
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {list.map((m, i) => (

@@ -13,7 +13,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as MentorsRouteImport } from './routes/mentors'
+import { Route as MocksAnalysisRouteImport } from './routes/mocks-analysis'
+import { Route as PlateauedStrategyRouteImport } from './routes/plateaued-strategy'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as RankJumpPlanRouteImport } from './routes/rank-jump-plan'
+import { Route as StudyDailyRouteImport } from './routes/study-daily'
+import { Route as TimeManagementRouteImport } from './routes/time-management'
 import { Route as MentorsIndexRouteImport } from './routes/mentors.index'
 import { Route as MentorsMentorIdRouteImport } from './routes/mentors.$mentorId'
 
@@ -37,9 +42,34 @@ const MentorsRoute = MentorsRouteImport.update({
   path: '/mentors',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MocksAnalysisRoute = MocksAnalysisRouteImport.update({
+  id: '/mocks-analysis',
+  path: '/mocks-analysis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlateauedStrategyRoute = PlateauedStrategyRouteImport.update({
+  id: '/plateaued-strategy',
+  path: '/plateaued-strategy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RankJumpPlanRoute = RankJumpPlanRouteImport.update({
+  id: '/rank-jump-plan',
+  path: '/rank-jump-plan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudyDailyRoute = StudyDailyRouteImport.update({
+  id: '/study-daily',
+  path: '/study-daily',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TimeManagementRoute = TimeManagementRouteImport.update({
+  id: '/time-management',
+  path: '/time-management',
   getParentRoute: () => rootRouteImport,
 } as any)
 const MentorsIndexRoute = MentorsIndexRouteImport.update({
@@ -58,7 +88,12 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/mentors': typeof MentorsRouteWithChildren
+  '/mocks-analysis': typeof MocksAnalysisRoute
+  '/plateaued-strategy': typeof PlateauedStrategyRoute
   '/pricing': typeof PricingRoute
+  '/rank-jump-plan': typeof RankJumpPlanRoute
+  '/study-daily': typeof StudyDailyRoute
+  '/time-management': typeof TimeManagementRoute
   '/mentors/$mentorId': typeof MentorsMentorIdRoute
   '/mentors/': typeof MentorsIndexRoute
 }
@@ -66,7 +101,12 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/mocks-analysis': typeof MocksAnalysisRoute
+  '/plateaued-strategy': typeof PlateauedStrategyRoute
   '/pricing': typeof PricingRoute
+  '/rank-jump-plan': typeof RankJumpPlanRoute
+  '/study-daily': typeof StudyDailyRoute
+  '/time-management': typeof TimeManagementRoute
   '/mentors/$mentorId': typeof MentorsMentorIdRoute
   '/mentors': typeof MentorsIndexRoute
 }
@@ -76,7 +116,12 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/mentors': typeof MentorsRouteWithChildren
+  '/mocks-analysis': typeof MocksAnalysisRoute
+  '/plateaued-strategy': typeof PlateauedStrategyRoute
   '/pricing': typeof PricingRoute
+  '/rank-jump-plan': typeof RankJumpPlanRoute
+  '/study-daily': typeof StudyDailyRoute
+  '/time-management': typeof TimeManagementRoute
   '/mentors/$mentorId': typeof MentorsMentorIdRoute
   '/mentors/': typeof MentorsIndexRoute
 }
@@ -87,7 +132,12 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-it-works'
     | '/mentors'
+    | '/mocks-analysis'
+    | '/plateaued-strategy'
     | '/pricing'
+    | '/rank-jump-plan'
+    | '/study-daily'
+    | '/time-management'
     | '/mentors/$mentorId'
     | '/mentors/'
   fileRoutesByTo: FileRoutesByTo
@@ -95,7 +145,12 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/how-it-works'
+    | '/mocks-analysis'
+    | '/plateaued-strategy'
     | '/pricing'
+    | '/rank-jump-plan'
+    | '/study-daily'
+    | '/time-management'
     | '/mentors/$mentorId'
     | '/mentors'
   id:
@@ -104,7 +159,12 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-it-works'
     | '/mentors'
+    | '/mocks-analysis'
+    | '/plateaued-strategy'
     | '/pricing'
+    | '/rank-jump-plan'
+    | '/study-daily'
+    | '/time-management'
     | '/mentors/$mentorId'
     | '/mentors/'
   fileRoutesById: FileRoutesById
@@ -114,7 +174,12 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   HowItWorksRoute: typeof HowItWorksRoute
   MentorsRoute: typeof MentorsRouteWithChildren
+  MocksAnalysisRoute: typeof MocksAnalysisRoute
+  PlateauedStrategyRoute: typeof PlateauedStrategyRoute
   PricingRoute: typeof PricingRoute
+  RankJumpPlanRoute: typeof RankJumpPlanRoute
+  StudyDailyRoute: typeof StudyDailyRoute
+  TimeManagementRoute: typeof TimeManagementRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -147,11 +212,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MentorsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/mocks-analysis': {
+      id: '/mocks-analysis'
+      path: '/mocks-analysis'
+      fullPath: '/mocks-analysis'
+      preLoaderRoute: typeof MocksAnalysisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plateaued-strategy': {
+      id: '/plateaued-strategy'
+      path: '/plateaued-strategy'
+      fullPath: '/plateaued-strategy'
+      preLoaderRoute: typeof PlateauedStrategyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/pricing': {
       id: '/pricing'
       path: '/pricing'
       fullPath: '/pricing'
       preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rank-jump-plan': {
+      id: '/rank-jump-plan'
+      path: '/rank-jump-plan'
+      fullPath: '/rank-jump-plan'
+      preLoaderRoute: typeof RankJumpPlanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/study-daily': {
+      id: '/study-daily'
+      path: '/study-daily'
+      fullPath: '/study-daily'
+      preLoaderRoute: typeof StudyDailyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/time-management': {
+      id: '/time-management'
+      path: '/time-management'
+      fullPath: '/time-management'
+      preLoaderRoute: typeof TimeManagementRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mentors/': {
@@ -189,7 +289,12 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   HowItWorksRoute: HowItWorksRoute,
   MentorsRoute: MentorsRouteWithChildren,
+  MocksAnalysisRoute: MocksAnalysisRoute,
+  PlateauedStrategyRoute: PlateauedStrategyRoute,
   PricingRoute: PricingRoute,
+  RankJumpPlanRoute: RankJumpPlanRoute,
+  StudyDailyRoute: StudyDailyRoute,
+  TimeManagementRoute: TimeManagementRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

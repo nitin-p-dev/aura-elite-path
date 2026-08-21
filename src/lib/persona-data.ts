@@ -1,8 +1,16 @@
 import type { LucideIcon } from "lucide-react";
 import { Target, GraduationCap, Sparkles, LineChart, Clock } from "lucide-react";
 
+export type PersonaSlug =
+  | "plateaued-strategy"
+  | "study-daily"
+  | "mocks-analysis"
+  | "rank-jump-plan"
+  | "time-management";
+
 export type Persona = {
-  slug: "plateaued-strategy" | "study-daily" | "mocks-analysis" | "rank-jump-plan" | "time-management";
+  slug: PersonaSlug;
+  href: `/${PersonaSlug}`;
   icon: LucideIcon;
   title: string;
   body: string;
@@ -15,6 +23,7 @@ export type Persona = {
 export const personas: Persona[] = [
   {
     slug: "plateaued-strategy",
+    href: "/plateaued-strategy",
     icon: Target,
     title: "The plateaued",
     body: "You study daily but your mocks stopped moving.",
@@ -34,6 +43,7 @@ export const personas: Persona[] = [
   },
   {
     slug: "study-daily",
+    href: "/study-daily",
     icon: GraduationCap,
     title: "The self-studier",
     body: "No coaching, no feedback loop, plenty of doubt.",
@@ -53,6 +63,7 @@ export const personas: Persona[] = [
   },
   {
     slug: "mocks-analysis",
+    href: "/mocks-analysis",
     icon: Sparkles,
     title: "The repeater",
     body: "One more attempt — this time with a plan and a witness.",
@@ -72,6 +83,7 @@ export const personas: Persona[] = [
   },
   {
     slug: "rank-jump-plan",
+    href: "/rank-jump-plan",
     icon: LineChart,
     title: "The near-miss",
     body: "You cleared the cut-off, but missed the college you wanted.",
@@ -91,6 +103,7 @@ export const personas: Persona[] = [
   },
   {
     slug: "time-management",
+    href: "/time-management",
     icon: Clock,
     title: "The over-committed",
     body: "College, internship or a job — and prep squeezed into the gaps.",
@@ -111,6 +124,6 @@ export const personas: Persona[] = [
 ];
 
 export const personaBySlug = Object.fromEntries(personas.map((p) => [p.slug, p])) as Record<
-  Persona["slug"],
+  PersonaSlug,
   Persona
 >;
