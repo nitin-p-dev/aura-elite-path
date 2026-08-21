@@ -32,6 +32,8 @@ function MentorHub() {
   const { college } = Route.useSearch();
   const navigate = Route.useNavigate();
   const [filter, setFilter] = useState<ExamKey | "ALL">("ALL");
+  const colleges = Array.from(new Set(mentors.map((m) => m.college))).sort();
+
   const list = mentors.filter(
     (m) => (filter === "ALL" || m.exam === filter) && (!college || m.college === college),
   );
