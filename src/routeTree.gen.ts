@@ -15,6 +15,7 @@ import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as MentorsRouteImport } from './routes/mentors'
 import { Route as PlateauedStrategyRouteImport } from './routes/plateaued-strategy'
 import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as StudyDailyRouteImport } from './routes/study-daily'
 import { Route as MentorsIndexRouteImport } from './routes/mentors.index'
 import { Route as MentorsMentorIdRouteImport } from './routes/mentors.$mentorId'
 
@@ -48,6 +49,11 @@ const PricingRoute = PricingRouteImport.update({
   path: '/pricing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudyDailyRoute = StudyDailyRouteImport.update({
+  id: '/study-daily',
+  path: '/study-daily',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MentorsIndexRoute = MentorsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -66,6 +72,7 @@ export interface FileRoutesByFullPath {
   '/mentors': typeof MentorsRouteWithChildren
   '/plateaued-strategy': typeof PlateauedStrategyRoute
   '/pricing': typeof PricingRoute
+  '/study-daily': typeof StudyDailyRoute
   '/mentors/$mentorId': typeof MentorsMentorIdRoute
   '/mentors/': typeof MentorsIndexRoute
 }
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/how-it-works': typeof HowItWorksRoute
   '/plateaued-strategy': typeof PlateauedStrategyRoute
   '/pricing': typeof PricingRoute
+  '/study-daily': typeof StudyDailyRoute
   '/mentors/$mentorId': typeof MentorsMentorIdRoute
   '/mentors': typeof MentorsIndexRoute
 }
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/mentors': typeof MentorsRouteWithChildren
   '/plateaued-strategy': typeof PlateauedStrategyRoute
   '/pricing': typeof PricingRoute
+  '/study-daily': typeof StudyDailyRoute
   '/mentors/$mentorId': typeof MentorsMentorIdRoute
   '/mentors/': typeof MentorsIndexRoute
 }
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/mentors'
     | '/plateaued-strategy'
     | '/pricing'
+    | '/study-daily'
     | '/mentors/$mentorId'
     | '/mentors/'
   fileRoutesByTo: FileRoutesByTo
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/how-it-works'
     | '/plateaued-strategy'
     | '/pricing'
+    | '/study-daily'
     | '/mentors/$mentorId'
     | '/mentors'
   id:
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/mentors'
     | '/plateaued-strategy'
     | '/pricing'
+    | '/study-daily'
     | '/mentors/$mentorId'
     | '/mentors/'
   fileRoutesById: FileRoutesById
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   MentorsRoute: typeof MentorsRouteWithChildren
   PlateauedStrategyRoute: typeof PlateauedStrategyRoute
   PricingRoute: typeof PricingRoute
+  StudyDailyRoute: typeof StudyDailyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -174,6 +187,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PricingRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/study-daily': {
+      id: '/study-daily'
+      path: '/study-daily'
+      fullPath: '/study-daily'
+      preLoaderRoute: typeof StudyDailyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mentors/': {
       id: '/mentors/'
       path: '/'
@@ -211,6 +231,7 @@ const rootRouteChildren: RootRouteChildren = {
   MentorsRoute: MentorsRouteWithChildren,
   PlateauedStrategyRoute: PlateauedStrategyRoute,
   PricingRoute: PricingRoute,
+  StudyDailyRoute: StudyDailyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
