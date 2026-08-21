@@ -6,9 +6,10 @@ import { AuraBackdrop } from "@/components/aura-backdrop";
 import { mentors, exams, type ExamKey } from "@/lib/aura-data";
 
 export const Route = createFileRoute("/mentors/")({
-  validateSearch: (search: Record<string, unknown>): { college?: string } => ({
-    college: typeof search.college === "string" && search.college ? search.college : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): { college?: string } => {
+    const raw = search["college"];
+    return typeof raw === "string" && raw ? { college: raw } : {};
+  },
   head: () => ({
     meta: [
       { title: "Mentor Hub — Aura Mentorship" },
