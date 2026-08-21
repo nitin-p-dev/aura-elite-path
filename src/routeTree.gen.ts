@@ -18,6 +18,7 @@ import { Route as PlateauedStrategyRouteImport } from './routes/plateaued-strate
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as RankJumpPlanRouteImport } from './routes/rank-jump-plan'
 import { Route as StudyDailyRouteImport } from './routes/study-daily'
+import { Route as TimeManagementRouteImport } from './routes/time-management'
 import { Route as MentorsIndexRouteImport } from './routes/mentors.index'
 import { Route as MentorsMentorIdRouteImport } from './routes/mentors.$mentorId'
 
@@ -66,6 +67,11 @@ const StudyDailyRoute = StudyDailyRouteImport.update({
   path: '/study-daily',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TimeManagementRoute = TimeManagementRouteImport.update({
+  id: '/time-management',
+  path: '/time-management',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MentorsIndexRoute = MentorsIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -87,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/pricing': typeof PricingRoute
   '/rank-jump-plan': typeof RankJumpPlanRoute
   '/study-daily': typeof StudyDailyRoute
+  '/time-management': typeof TimeManagementRoute
   '/mentors/$mentorId': typeof MentorsMentorIdRoute
   '/mentors/': typeof MentorsIndexRoute
 }
@@ -99,6 +106,7 @@ export interface FileRoutesByTo {
   '/pricing': typeof PricingRoute
   '/rank-jump-plan': typeof RankJumpPlanRoute
   '/study-daily': typeof StudyDailyRoute
+  '/time-management': typeof TimeManagementRoute
   '/mentors/$mentorId': typeof MentorsMentorIdRoute
   '/mentors': typeof MentorsIndexRoute
 }
@@ -113,6 +121,7 @@ export interface FileRoutesById {
   '/pricing': typeof PricingRoute
   '/rank-jump-plan': typeof RankJumpPlanRoute
   '/study-daily': typeof StudyDailyRoute
+  '/time-management': typeof TimeManagementRoute
   '/mentors/$mentorId': typeof MentorsMentorIdRoute
   '/mentors/': typeof MentorsIndexRoute
 }
@@ -128,6 +137,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/rank-jump-plan'
     | '/study-daily'
+    | '/time-management'
     | '/mentors/$mentorId'
     | '/mentors/'
   fileRoutesByTo: FileRoutesByTo
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/rank-jump-plan'
     | '/study-daily'
+    | '/time-management'
     | '/mentors/$mentorId'
     | '/mentors'
   id:
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/pricing'
     | '/rank-jump-plan'
     | '/study-daily'
+    | '/time-management'
     | '/mentors/$mentorId'
     | '/mentors/'
   fileRoutesById: FileRoutesById
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   PricingRoute: typeof PricingRoute
   RankJumpPlanRoute: typeof RankJumpPlanRoute
   StudyDailyRoute: typeof StudyDailyRoute
+  TimeManagementRoute: typeof TimeManagementRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -234,6 +247,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudyDailyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/time-management': {
+      id: '/time-management'
+      path: '/time-management'
+      fullPath: '/time-management'
+      preLoaderRoute: typeof TimeManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mentors/': {
       id: '/mentors/'
       path: '/'
@@ -274,6 +294,7 @@ const rootRouteChildren: RootRouteChildren = {
   PricingRoute: PricingRoute,
   RankJumpPlanRoute: RankJumpPlanRoute,
   StudyDailyRoute: StudyDailyRoute,
+  TimeManagementRoute: TimeManagementRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

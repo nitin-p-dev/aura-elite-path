@@ -84,17 +84,21 @@ function Home() {
           </motion.div>
 
           {/* Who it's for */}
-          <motion.div {...fade} className="mt-16 grid gap-3 text-left sm:grid-cols-3">
-            {[
-              { icon: Target, title: "The plateaued", body: "You study daily but your mocks stopped moving." },
-              { icon: GraduationCap, title: "The self-studier", body: "No coaching, no feedback loop, plenty of doubt." },
-              { icon: Sparkles, title: "The repeater", body: "One more attempt — this time with a plan and a witness." },
-            ].map((c) => (
-              <div key={c.title} className="glass rounded-3xl p-5">
+          <motion.div {...fade} className="mt-16 grid gap-3 text-left sm:grid-cols-2 lg:grid-cols-3">
+            {personas.map((c) => (
+              <Link
+                key={c.slug}
+                to={`/${c.slug}`}
+                className="glass group rounded-3xl p-5 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-gold hover:ring-1 hover:ring-gold/40"
+              >
                 <c.icon className="h-5 w-5 text-gold" />
                 <p className="mt-3 font-semibold">{c.title}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{c.body}</p>
-              </div>
+                <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-gold opacity-70 transition-opacity group-hover:opacity-100">
+                  Read the plan{" "}
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                </span>
+              </Link>
             ))}
           </motion.div>
         </div>
@@ -108,16 +112,19 @@ function Home() {
         <div className="mt-5 overflow-hidden">
           <div className="marquee-track flex w-max gap-4">
             {[...institutions, ...institutions].map((name, i) => (
-              <span
+              <Link
                 key={`${name}-${i}`}
-                className="glass whitespace-nowrap rounded-full px-6 py-2.5 text-sm font-medium text-foreground/80"
+                to="/mentors"
+                search={{ college: name }}
+                className="glass whitespace-nowrap rounded-full px-6 py-2.5 text-sm font-medium text-foreground/80 transition-all duration-300 hover:bg-accent/20 hover:text-gold hover:ring-1 hover:ring-gold/40"
               >
                 {name}
-              </span>
+              </Link>
             ))}
           </div>
         </div>
       </section>
+
 
       {/* Exams */}
       <section className="px-4 py-20 sm:px-6">
