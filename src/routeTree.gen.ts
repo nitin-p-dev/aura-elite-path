@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as MentorsRouteImport } from './routes/mentors'
+import { Route as PlateauedStrategyRouteImport } from './routes/plateaued-strategy'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as MentorsIndexRouteImport } from './routes/mentors.index'
 import { Route as MentorsMentorIdRouteImport } from './routes/mentors.$mentorId'
@@ -37,6 +38,11 @@ const MentorsRoute = MentorsRouteImport.update({
   path: '/mentors',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PlateauedStrategyRoute = PlateauedStrategyRouteImport.update({
+  id: '/plateaued-strategy',
+  path: '/plateaued-strategy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PricingRoute = PricingRouteImport.update({
   id: '/pricing',
   path: '/pricing',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/mentors': typeof MentorsRouteWithChildren
+  '/plateaued-strategy': typeof PlateauedStrategyRoute
   '/pricing': typeof PricingRoute
   '/mentors/$mentorId': typeof MentorsMentorIdRoute
   '/mentors/': typeof MentorsIndexRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
+  '/plateaued-strategy': typeof PlateauedStrategyRoute
   '/pricing': typeof PricingRoute
   '/mentors/$mentorId': typeof MentorsMentorIdRoute
   '/mentors': typeof MentorsIndexRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/mentors': typeof MentorsRouteWithChildren
+  '/plateaued-strategy': typeof PlateauedStrategyRoute
   '/pricing': typeof PricingRoute
   '/mentors/$mentorId': typeof MentorsMentorIdRoute
   '/mentors/': typeof MentorsIndexRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-it-works'
     | '/mentors'
+    | '/plateaued-strategy'
     | '/pricing'
     | '/mentors/$mentorId'
     | '/mentors/'
@@ -95,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/how-it-works'
+    | '/plateaued-strategy'
     | '/pricing'
     | '/mentors/$mentorId'
     | '/mentors'
@@ -104,6 +115,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/how-it-works'
     | '/mentors'
+    | '/plateaued-strategy'
     | '/pricing'
     | '/mentors/$mentorId'
     | '/mentors/'
@@ -114,6 +126,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   HowItWorksRoute: typeof HowItWorksRoute
   MentorsRoute: typeof MentorsRouteWithChildren
+  PlateauedStrategyRoute: typeof PlateauedStrategyRoute
   PricingRoute: typeof PricingRoute
 }
 
@@ -145,6 +158,13 @@ declare module '@tanstack/react-router' {
       path: '/mentors'
       fullPath: '/mentors'
       preLoaderRoute: typeof MentorsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/plateaued-strategy': {
+      id: '/plateaued-strategy'
+      path: '/plateaued-strategy'
+      fullPath: '/plateaued-strategy'
+      preLoaderRoute: typeof PlateauedStrategyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pricing': {
@@ -189,6 +209,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   HowItWorksRoute: HowItWorksRoute,
   MentorsRoute: MentorsRouteWithChildren,
+  PlateauedStrategyRoute: PlateauedStrategyRoute,
   PricingRoute: PricingRoute,
 }
 export const routeTree = rootRouteImport
