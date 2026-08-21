@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, GraduationCap, Sparkles, Target } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { AuraBackdrop } from "@/components/aura-backdrop";
 import { Button } from "@/components/ui/button";
 import { exams, institutions, tiers, successStories, steps } from "@/lib/aura-data";
+import { personas } from "@/lib/persona-data";
 import { StoriesCarousel } from "@/components/stories-carousel";
 
 export const Route = createFileRoute("/")({
@@ -88,7 +89,7 @@ function Home() {
             {personas.map((c) => (
               <Link
                 key={c.slug}
-                to={`/${c.slug}`}
+                to={c.href}
                 className="glass group rounded-3xl p-5 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02] hover:shadow-gold hover:ring-1 hover:ring-gold/40"
               >
                 <c.icon className="h-5 w-5 text-gold" />
