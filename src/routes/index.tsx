@@ -275,6 +275,55 @@ function Home() {
         </motion.div>
       </section>
 
+      {/* FAQ */}
+      <section className="px-4 py-16 sm:px-6">
+        <motion.div {...fade} className="mx-auto max-w-3xl">
+          <h2 className="text-center text-3xl font-semibold sm:text-4xl">Common doubts.</h2>
+          <p className="mx-auto mt-3 max-w-lg text-center text-muted-foreground">
+            The questions we hear most often before a student books their first call.
+          </p>
+          <Accordion type="single" collapsible className="mt-8 glass divide-y divide-border/40 rounded-3xl px-6">
+            <AccordionItem value="change-mentor" className="border-border/40">
+              <AccordionTrigger className="text-sm sm:text-base">
+                What if I need to change my mentor?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground">
+                You can request a rematch anytime before the second week of the month. We
+                prioritise fit over friction, and there is no extra charge for a single change.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="upgrade-tier" className="border-border/40">
+              <AccordionTrigger className="text-sm sm:text-base">
+                Can I upgrade my tier mid-month?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground">
+                Yes. Upgrades take effect within 48 hours and you only pay the prorated difference
+                for the remaining days of the month.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="matching-call" className="border-border/40">
+              <AccordionTrigger className="text-sm sm:text-base">
+                How does the 20-minute matching call work?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground">
+                A senior mentor listens to your current scores, daily schedule and weak areas, then
+                recommends the exact tier and subject mentor who can close your gap fastest.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="async-doubts" className="border-border/40">
+              <AccordionTrigger className="text-sm sm:text-base">
+                Do mentors solve doubts outside of live sessions?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground">
+                General tier and above include chat support, with Gold and Premium promising a
+                response inside a few hours. Basic tier uses the community forum moderated by
+                mentors.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </motion.div>
+      </section>
+
       {/* CTA */}
       <section className="px-4 py-16 sm:px-6">
         <motion.div
