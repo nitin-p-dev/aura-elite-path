@@ -160,6 +160,49 @@ function Home() {
         </motion.div>
       </section>
 
+      {/* Mentor profile cards */}
+      <section className="px-4 py-10 sm:px-6">
+        <motion.div {...fade} className="mx-auto max-w-6xl">
+          <h2 className="text-3xl font-semibold sm:text-4xl">Meet the minds behind the ranks.</h2>
+          <p className="mt-3 max-w-xl text-muted-foreground">
+            Top-100 rankers from IIT, IISc and IIM who treat your paper like their own.
+          </p>
+          <div className="mt-8 flex snap-x gap-4 overflow-x-auto pb-4 scrollbar-hide sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible">
+            {mentors.slice(0, 4).map((m) => (
+              <Link
+                key={m.id}
+                to="/mentors/$mentorId"
+                params={{ mentorId: m.id }}
+                className="glass group w-[260px] shrink-0 snap-start rounded-3xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft sm:w-auto"
+              >
+                <div className="flex items-center gap-4">
+                  <Avatar className="h-14 w-14 ring-2 ring-gold/20 ring-offset-2 ring-offset-background transition-all group-hover:ring-gold/40">
+                    <AvatarImage src={`/mentors/${m.id}.jpg`} alt={m.name} />
+                    <AvatarFallback className="bg-gradient-to-br from-gold-soft to-gold text-navy-deep font-semibold">
+                      {m.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-semibold">{m.name}</p>
+                    <p className="text-xs text-muted-foreground">{m.exam} · {m.rank}</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-between">
+                  <span className="text-sm font-medium text-foreground/80">{m.college}</span>
+                  <Badge variant="outline" className="text-[10px] border-gold/30 text-gold">
+                    {m.subjects[0]}
+                  </Badge>
+                </div>
+                <p className="mt-3 text-sm text-muted-foreground line-clamp-2">{m.headline}</p>
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
       {/* Tier teaser */}
       <section className="px-4 py-16 sm:px-6">
         <motion.div {...fade} className="mx-auto max-w-6xl">
