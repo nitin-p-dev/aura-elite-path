@@ -225,11 +225,18 @@ function Home() {
                   t.featured ? "ring-1 ring-gold/50 shadow-gold" : ""
                 }`}
               >
-                {t.featured && (
-                  <span className="mb-3 inline-block rounded-full bg-accent/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-gold">
-                    Most chosen
-                  </span>
-                )}
+                <div className="mb-3 flex flex-wrap items-center gap-2">
+                  {t.featured && (
+                    <span className="rounded-full bg-accent/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-gold">
+                      Most chosen
+                    </span>
+                  )}
+                  {t.scarcity && (
+                    <span className="rounded-full border border-gold/20 px-2.5 py-0.5 text-[10px] font-medium text-gold/80">
+                      {t.scarcity}
+                    </span>
+                  )}
+                </div>
                 <p className="font-display text-xl font-semibold">{t.name}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{t.tagline}</p>
                 <p className="mt-4 text-2xl font-semibold">{t.price}</p>
