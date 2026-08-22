@@ -3,7 +3,15 @@ import { motion } from "motion/react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { AuraBackdrop } from "@/components/aura-backdrop";
 import { Button } from "@/components/ui/button";
-import { exams, institutions, tiers, successStories, steps } from "@/lib/aura-data";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { exams, institutions, mentors, tiers, successStories, steps } from "@/lib/aura-data";
 import { personas } from "@/lib/persona-data";
 import { StoriesCarousel } from "@/components/stories-carousel";
 
@@ -152,6 +160,49 @@ function Home() {
         </motion.div>
       </section>
 
+      {/* Mentor profile cards */}
+      <section className="px-4 py-10 sm:px-6">
+        <motion.div {...fade} className="mx-auto max-w-6xl">
+          <h2 className="text-3xl font-semibold sm:text-4xl">Meet the minds behind the ranks.</h2>
+          <p className="mt-3 max-w-xl text-muted-foreground">
+            Top-100 rankers from IIT, IISc and IIM who treat your paper like their own.
+          </p>
+          <div className="mt-8 flex snap-x gap-4 overflow-x-auto pb-4 scrollbar-hide sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible">
+            {mentors.slice(0, 4).map((m) => (
+              <Link
+                key={m.id}
+                to="/mentors/$mentorId"
+                params={{ mentorId: m.id }}
+                className="glass group w-[260px] shrink-0 snap-start rounded-3xl p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft sm:w-auto"
+              >
+                <div className="flex items-center gap-4">
+                  <Avatar className="h-14 w-14 ring-2 ring-gold/20 ring-offset-2 ring-offset-background transition-all group-hover:ring-gold/40">
+                    <AvatarImage src={`/mentors/${m.id}.jpg`} alt={m.name} />
+                    <AvatarFallback className="bg-gradient-to-br from-gold-soft to-gold text-navy-deep font-semibold">
+                      {m.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="font-semibold">{m.name}</p>
+                    <p className="text-xs text-muted-foreground">{m.exam} · {m.rank}</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-between">
+                  <span className="text-sm font-medium text-foreground/80">{m.college}</span>
+                  <Badge variant="outline" className="text-[10px] border-gold/30 text-gold">
+                    {m.subjects[0]}
+                  </Badge>
+                </div>
+                <p className="mt-3 text-sm text-muted-foreground line-clamp-2">{m.headline}</p>
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
       {/* Tier teaser */}
       <section className="px-4 py-16 sm:px-6">
         <motion.div {...fade} className="mx-auto max-w-6xl">
@@ -174,11 +225,18 @@ function Home() {
                   t.featured ? "ring-1 ring-gold/50 shadow-gold" : ""
                 }`}
               >
-                {t.featured && (
-                  <span className="mb-3 inline-block rounded-full bg-accent/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-gold">
-                    Most chosen
-                  </span>
-                )}
+                <div className="mb-3 flex flex-wrap items-center gap-2">
+                  {t.featured && (
+                    <span className="rounded-full bg-accent/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-gold">
+                      Most chosen
+                    </span>
+                  )}
+                  {t.scarcity && (
+                    <span className="rounded-full border border-gold/20 px-2.5 py-0.5 text-[10px] font-medium text-gold/80">
+                      {t.scarcity}
+                    </span>
+                  )}
+                </div>
                 <p className="font-display text-xl font-semibold">{t.name}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{t.tagline}</p>
                 <p className="mt-4 text-2xl font-semibold">{t.price}</p>
@@ -214,6 +272,55 @@ function Home() {
         <motion.div {...fade} className="mx-auto max-w-6xl">
           <h2 className="text-3xl font-semibold sm:text-4xl">Rank movement, not testimonials theatre.</h2>
           <StoriesCarousel stories={successStories} />
+        </motion.div>
+      </section>
+
+      {/* FAQ */}
+      <section className="px-4 py-16 sm:px-6">
+        <motion.div {...fade} className="mx-auto max-w-3xl">
+          <h2 className="text-center text-3xl font-semibold sm:text-4xl">Common doubts.</h2>
+          <p className="mx-auto mt-3 max-w-lg text-center text-muted-foreground">
+            The questions we hear most often before a student books their first call.
+          </p>
+          <Accordion type="single" collapsible className="mt-8 glass divide-y divide-border/40 rounded-3xl px-6">
+            <AccordionItem value="change-mentor" className="border-border/40">
+              <AccordionTrigger className="text-sm sm:text-base">
+                What if I need to change my mentor?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground">
+                You can request a rematch anytime before the second week of the month. We
+                prioritise fit over friction, and there is no extra charge for a single change.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="upgrade-tier" className="border-border/40">
+              <AccordionTrigger className="text-sm sm:text-base">
+                Can I upgrade my tier mid-month?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground">
+                Yes. Upgrades take effect within 48 hours and you only pay the prorated difference
+                for the remaining days of the month.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="matching-call" className="border-border/40">
+              <AccordionTrigger className="text-sm sm:text-base">
+                How does the 20-minute matching call work?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground">
+                A senior mentor listens to your current scores, daily schedule and weak areas, then
+                recommends the exact tier and subject mentor who can close your gap fastest.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="async-doubts" className="border-border/40">
+              <AccordionTrigger className="text-sm sm:text-base">
+                Do mentors solve doubts outside of live sessions?
+              </AccordionTrigger>
+              <AccordionContent className="text-sm text-muted-foreground">
+                General tier and above include chat support, with Gold and Premium promising a
+                response inside a few hours. Basic tier uses the community forum moderated by
+                mentors.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
         </motion.div>
       </section>
 

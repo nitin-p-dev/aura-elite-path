@@ -21,6 +21,7 @@ export function SiteFooter() {
             <Link to="/mentors" className="hover:text-gold">Mentor hub</Link>
             <Link to="/pricing" className="hover:text-gold">Tiers & pricing</Link>
             <Link to="/how-it-works" className="hover:text-gold">How it works</Link>
+            <Link to="/apply-mentor" className="hover:text-gold">Apply as a Mentor</Link>
           </div>
         </div>
         <div className="text-sm">
