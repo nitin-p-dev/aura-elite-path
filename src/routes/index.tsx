@@ -326,13 +326,13 @@ function Home() {
             The questions we hear most often before a student books their first call.
           </p>
           <Accordion type="single" collapsible className="mt-8 glass divide-y divide-border/40 rounded-3xl px-6">
-            <AccordionItem value="change-mentor" className="border-border/40">
+            <AccordionItem value="refund-policy" className="border-border/40">
               <AccordionTrigger className="text-sm sm:text-base">
-                What if I need to change my mentor?
+                What is the refund policy?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground">
-                You can request a rematch anytime before the second week of the month. We
-                prioritise fit over friction, and there is no extra charge for a single change.
+                Full fee refund if you secure JEE Advanced AIR under 1000, or IAT AIR under 200. We
+                reward absolute excellence and only win when your rank proves it.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="upgrade-tier" className="border-border/40">
@@ -340,8 +340,8 @@ function Home() {
                 Can I upgrade my tier mid-month?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground">
-                Yes. Upgrades take effect within 48 hours and you only pay the prorated difference
-                for the remaining days of the month.
+                Yes, you can switch anytime. We also auto-upgrade exceptional students to Premium
+                1:1 for free based on consistent top performance in weekly drills.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="matching-call" className="border-border/40">
@@ -349,18 +349,8 @@ function Home() {
                 How does the 20-minute matching call work?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground">
-                A senior mentor listens to your current scores, daily schedule and weak areas, then
-                recommends the exact tier and subject mentor who can close your gap fastest.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="async-doubts" className="border-border/40">
-              <AccordionTrigger className="text-sm sm:text-base">
-                Do mentors solve doubts outside of live sessions?
-              </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground">
-                General tier and above include chat support, with Gold and Premium promising a
-                response inside a few hours. Basic tier uses the community forum moderated by
-                mentors.
+                We diagnose your prep level — whether you are Plateaued, Self-studier, Repeater or
+                any other persona — and pair you with a mentor who cracked the exact same hurdles.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
