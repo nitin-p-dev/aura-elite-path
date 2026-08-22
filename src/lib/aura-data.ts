@@ -215,6 +215,7 @@ export const tiers: Tier[] = [
     batchSize: "40 students",
     weekly: "1 group session + weekly plan",
     perks: ["Weekly study plan", "Community doubt forum", "Monthly mock review"],
+    scarcity: "Open cohort",
   },
   {
     key: "general",
@@ -223,9 +224,10 @@ export const tiers: Tier[] = [
     cadence: "per month",
     tagline: "Guidance that keeps pace.",
     mentorAccess: "Assigned mentor, weekly call",
-    batchSize: "15 students",
+    batchSize: "10 students",
     weekly: "2 group sessions + 1 check-in",
     perks: ["Assigned mentor", "Test analysis sheet", "Chat support in 12h"],
+    scarcity: "Max 10 students/cohort",
   },
   {
     key: "gold",
@@ -238,6 +240,7 @@ export const tiers: Tier[] = [
     weekly: "2 group + 1 private hour",
     featured: true,
     perks: ["1:1 weekly hour", "Personal error log", "Priority chat in 3h", "Parent progress note"],
+    scarcity: "Only 6 per cohort",
   },
   {
     key: "premium",
@@ -254,6 +257,7 @@ export const tiers: Tier[] = [
       "Full mock forensics",
       "Interview & counselling support",
     ],
+    scarcity: "Strictly 1:1",
   },
 ];
 
