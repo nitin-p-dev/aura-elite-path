@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, ShieldCheck, Award, TrendingUp } from "lucide-react";
 import { AuraBackdrop } from "@/components/aura-backdrop";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -248,6 +248,49 @@ function Home() {
         </motion.div>
       </section>
 
+      {/* The Aura Promise */}
+      <section className="px-4 py-16 sm:px-6">
+        <motion.div {...fade} className="mx-auto max-w-6xl">
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-gold/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-gold">
+              <ShieldCheck className="h-3.5 w-3.5" /> The Aura Promise
+            </span>
+            <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+              We only win when you win.
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+              Two guarantees built for students who are serious about moving ranks.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <div className="glass relative overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft">
+              <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-gold/10 blur-3xl" />
+              <div className="relative">
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gold/10 text-gold">
+                  <Award className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-xl font-semibold">100% Refund for Top Ranks</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Full fee refund if you secure JEE Advanced AIR under 1000, or IAT AIR under 200. We reward absolute excellence.
+                </p>
+              </div>
+            </div>
+            <div className="glass relative overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft">
+              <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-gold/10 blur-3xl" />
+              <div className="relative">
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gold/10 text-gold">
+                  <TrendingUp className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-xl font-semibold">Performance-Based Upgrades</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Consistent top performers in weekly drills get automatically upgraded to the Premium 1:1 Tier, entirely on us.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* How it works teaser */}
       <section className="px-4 py-16 sm:px-6">
         <motion.div {...fade} className="mx-auto max-w-6xl">
@@ -283,13 +326,13 @@ function Home() {
             The questions we hear most often before a student books their first call.
           </p>
           <Accordion type="single" collapsible className="mt-8 glass divide-y divide-border/40 rounded-3xl px-6">
-            <AccordionItem value="change-mentor" className="border-border/40">
+            <AccordionItem value="refund-policy" className="border-border/40">
               <AccordionTrigger className="text-sm sm:text-base">
-                What if I need to change my mentor?
+                What is the refund policy?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground">
-                You can request a rematch anytime before the second week of the month. We
-                prioritise fit over friction, and there is no extra charge for a single change.
+                Full fee refund if you secure JEE Advanced AIR under 1000, or IAT AIR under 200. We
+                reward absolute excellence and only win when your rank proves it.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="upgrade-tier" className="border-border/40">
@@ -297,8 +340,8 @@ function Home() {
                 Can I upgrade my tier mid-month?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground">
-                Yes. Upgrades take effect within 48 hours and you only pay the prorated difference
-                for the remaining days of the month.
+                Yes, you can switch anytime. We also auto-upgrade exceptional students to Premium
+                1:1 for free based on consistent top performance in weekly drills.
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="matching-call" className="border-border/40">
@@ -306,18 +349,8 @@ function Home() {
                 How does the 20-minute matching call work?
               </AccordionTrigger>
               <AccordionContent className="text-sm text-muted-foreground">
-                A senior mentor listens to your current scores, daily schedule and weak areas, then
-                recommends the exact tier and subject mentor who can close your gap fastest.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="async-doubts" className="border-border/40">
-              <AccordionTrigger className="text-sm sm:text-base">
-                Do mentors solve doubts outside of live sessions?
-              </AccordionTrigger>
-              <AccordionContent className="text-sm text-muted-foreground">
-                General tier and above include chat support, with Gold and Premium promising a
-                response inside a few hours. Basic tier uses the community forum moderated by
-                mentors.
+                We diagnose your prep level — whether you are Plateaued, Self-studier, Repeater or
+                any other persona — and pair you with a mentor who cracked the exact same hurdles.
               </AccordionContent>
             </AccordionItem>
           </Accordion>
