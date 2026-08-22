@@ -248,6 +248,49 @@ function Home() {
         </motion.div>
       </section>
 
+      {/* The Aura Promise */}
+      <section className="px-4 py-16 sm:px-6">
+        <motion.div {...fade} className="mx-auto max-w-6xl">
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 rounded-full bg-gold/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-gold">
+              <ShieldCheck className="h-3.5 w-3.5" /> The Aura Promise
+            </span>
+            <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+              We only win when you win.
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+              Two guarantees built for students who are serious about moving ranks.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            <div className="glass relative overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft">
+              <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-gold/10 blur-3xl" />
+              <div className="relative">
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gold/10 text-gold">
+                  <Award className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-xl font-semibold">100% Refund for Top Ranks</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Full fee refund if you secure JEE Advanced AIR under 1000, or IAT AIR under 200. We reward absolute excellence.
+                </p>
+              </div>
+            </div>
+            <div className="glass relative overflow-hidden rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-soft">
+              <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-gold/10 blur-3xl" />
+              <div className="relative">
+                <div className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-gold/10 text-gold">
+                  <TrendingUp className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 text-xl font-semibold">Performance-Based Upgrades</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  Consistent top performers in weekly drills get automatically upgraded to the Premium 1:1 Tier, entirely on us.
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* How it works teaser */}
       <section className="px-4 py-16 sm:px-6">
         <motion.div {...fade} className="mx-auto max-w-6xl">
