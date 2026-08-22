@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApplyMentorRouteImport } from './routes/apply-mentor'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as MentorsRouteImport } from './routes/mentors'
@@ -25,6 +26,11 @@ import { Route as MentorsMentorIdRouteImport } from './routes/mentors.$mentorId'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApplyMentorRoute = ApplyMentorRouteImport.update({
+  id: '/apply-mentor',
+  path: '/apply-mentor',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -85,6 +91,7 @@ const MentorsMentorIdRoute = MentorsMentorIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/apply-mentor': typeof ApplyMentorRoute
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/mentors': typeof MentorsRouteWithChildren
@@ -99,6 +106,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/apply-mentor': typeof ApplyMentorRoute
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/mocks-analysis': typeof MocksAnalysisRoute
@@ -113,6 +121,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/apply-mentor': typeof ApplyMentorRoute
   '/contact': typeof ContactRoute
   '/how-it-works': typeof HowItWorksRoute
   '/mentors': typeof MentorsRouteWithChildren
@@ -129,6 +138,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/apply-mentor'
     | '/contact'
     | '/how-it-works'
     | '/mentors'
@@ -143,6 +153,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/apply-mentor'
     | '/contact'
     | '/how-it-works'
     | '/mocks-analysis'
@@ -156,6 +167,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/apply-mentor'
     | '/contact'
     | '/how-it-works'
     | '/mentors'
@@ -171,6 +183,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApplyMentorRoute: typeof ApplyMentorRoute
   ContactRoute: typeof ContactRoute
   HowItWorksRoute: typeof HowItWorksRoute
   MentorsRoute: typeof MentorsRouteWithChildren
@@ -189,6 +202,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/apply-mentor': {
+      id: '/apply-mentor'
+      path: '/apply-mentor'
+      fullPath: '/apply-mentor'
+      preLoaderRoute: typeof ApplyMentorRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -286,6 +306,7 @@ const MentorsRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApplyMentorRoute: ApplyMentorRoute,
   ContactRoute: ContactRoute,
   HowItWorksRoute: HowItWorksRoute,
   MentorsRoute: MentorsRouteWithChildren,
