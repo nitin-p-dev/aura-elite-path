@@ -3,7 +3,15 @@ import { motion } from "motion/react";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { AuraBackdrop } from "@/components/aura-backdrop";
 import { Button } from "@/components/ui/button";
-import { exams, institutions, tiers, successStories, steps } from "@/lib/aura-data";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { exams, institutions, mentors, tiers, successStories, steps } from "@/lib/aura-data";
 import { personas } from "@/lib/persona-data";
 import { StoriesCarousel } from "@/components/stories-carousel";
 
