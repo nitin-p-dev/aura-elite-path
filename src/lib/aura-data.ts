@@ -201,6 +201,7 @@ export type Tier = {
   weekly: string;
   featured?: boolean;
   perks: string[];
+  scarcity?: string;
 };
 
 export const tiers: Tier[] = [
