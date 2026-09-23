@@ -9,16 +9,16 @@ import { StoriesCarousel } from "@/components/stories-carousel";
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
     meta: [
-      { title: "How Credencementor Works — Four Steps" },
+      { title: "How Aura Elite Works — Four Steps" },
       {
         name: "description",
         content:
           "Pick your exam, pick a tier, get matched with a mentor, and run a weekly structure of planning, drills and review.",
       },
-      { property: "og:title", content: "How Credencementor Works — Four Steps" },
+      { property: "og:title", content: "How Aura Elite Works — Four Steps" },
       {
         property: "og:description",
-        content: "From first call to weekly rhythm — the whole Credencementor mentorship flow in four steps.",
+        content: "From first call to weekly rhythm — the whole Aura Elite mentorship flow in four steps.",
       },
     ],
   }),

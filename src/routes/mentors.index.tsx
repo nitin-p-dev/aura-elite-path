@@ -12,13 +12,13 @@ export const Route = createFileRoute("/mentors/")({
   },
   head: () => ({
     meta: [
-      { title: "Mentor Hub — Credencementor" },
+      { title: "Mentor Hub — Aura Elite" },
       {
         name: "description",
         content:
-          "Browse Credencementor mentors by exam: JEE, IAT, CAT and GATE. See ranks, colleges, subjects and open slots before you book.",
+          "Browse Aura Elite mentors by exam: JEE, IAT, CAT and GATE. See ranks, colleges, subjects and open slots before you book.",
       },
-      { property: "og:title", content: "Mentor Hub — Credencementor" },
+      { property: "og:title", content: "Mentor Hub — Aura Elite" },
       {
         property: "og:description",
         content: "Filter mentors by exam and open a full profile with strategy, slots and testimonials.",

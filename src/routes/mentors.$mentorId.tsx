@@ -14,11 +14,11 @@ export const Route = createFileRoute("/mentors/$mentorId")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Mentor unavailable — Credencementor" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Mentor unavailable — Aura Elite" }, { name: "robots", content: "noindex" }],
       };
     }
     const { mentor } = loaderData;
-    const title = `${mentor.name} — ${mentor.exam} Mentor at Credencementor`;
+    const title = `${mentor.name} — ${mentor.exam} Mentor at Aura Elite`;
     const description = `${mentor.rank}, ${mentor.college}. ${mentor.headline} Subjects: ${mentor.subjects.join(", ")}.`;
     return {
       meta: [
