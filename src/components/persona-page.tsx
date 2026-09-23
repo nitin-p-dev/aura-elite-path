@@ -65,7 +65,7 @@ export function PersonaPage({ persona }: { persona: Persona }) {
         <div className="glass mt-12 rounded-3xl px-6 py-10 text-center">
           <h2 className="text-2xl font-semibold">Want this mapped to your syllabus?</h2>
           <p className="mx-auto mt-2 max-w-sm text-sm text-muted-foreground">
-            Twenty minutes on a call is enough for us to tell you honestly whether Aura helps.
+            Twenty minutes on a call is enough for us to tell you honestly whether Credencementor helps.
           </p>
           <div className="mt-7 flex flex-wrap justify-center gap-3">
             <Button asChild variant="gold" size="lg">

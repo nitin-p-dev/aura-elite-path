@@ -7,9 +7,9 @@ export function SiteFooter() {
         <div>
           <div className="flex items-center gap-2">
             <span className="grid h-9 w-9 place-items-center rounded-full bg-linear-to-br from-gold-soft to-gold text-sm font-bold text-navy-deep">
-              A
+              C
             </span>
-            <span className="font-display text-lg font-semibold">Aura</span>
+            <span className="font-display text-lg font-semibold">Credencementor</span>
           </div>
           <p className="mt-3 max-w-sm text-sm text-muted-foreground">
             Mentorship for JEE, IAT, CAT and GATE — led by people who have already sat in that chair.
@@ -28,13 +28,13 @@ export function SiteFooter() {
           <p className="font-semibold">Talk to us</p>
           <div className="mt-3 flex flex-col gap-2 text-muted-foreground">
             <Link to="/contact" className="hover:text-gold">Book a free call</Link>
-            <a href="mailto:hello@aura.study" className="hover:text-gold">hello@aura.study</a>
+            <a href="mailto:hello@credencementor.com" className="hover:text-gold">hello@credencementor.com</a>
             <span>9 AM – 11 PM IST</span>
           </div>
         </div>
       </div>
       <p className="mx-auto mt-10 max-w-6xl text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Aura Mentorship. All rights reserved.
+        © {new Date().getFullYear()} Credencementor. All rights reserved.
       </p>
     </footer>
   );

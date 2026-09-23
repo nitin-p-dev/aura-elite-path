@@ -82,13 +82,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Aura — Elite Mentorship for JEE, IAT, CAT & GATE" },
+      { title: "Credencementor — Elite Mentorship for JEE, IAT, CAT & GATE" },
       {
         name: "description",
         content: "Mentorship from IISc, IIT and IIM toppers for India's toughest entrance exams.",
       },
-      { name: "author", content: "Aura Mentorship" },
-      { property: "og:title", content: "Aura — Elite Mentorship for JEE, IAT, CAT & GATE" },
+      { name: "author", content: "Credencementor" },
+      { property: "og:title", content: "Credencementor — Elite Mentorship for JEE, IAT, CAT & GATE" },
       {
         property: "og:description",
         content: "Mentorship from IISc, IIT and IIM toppers for India's toughest entrance exams.",

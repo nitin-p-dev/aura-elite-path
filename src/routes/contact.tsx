@@ -12,13 +12,13 @@ import { exams } from "@/lib/aura-data";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Book a Free Call — Aura Mentorship" },
+      { title: "Book a Free Call — Credencementor" },
       {
         name: "description",
         content:
-          "Book a free 20-minute diagnostic call with Aura. Tell us where you're stuck in JEE, IAT, CAT or GATE prep.",
+          "Book a free 20-minute diagnostic call with Credencementor. Tell us where you're stuck in JEE, IAT, CAT or GATE prep.",
       },
-      { property: "og:title", content: "Book a Free Call — Aura Mentorship" },
+      { property: "og:title", content: "Book a Free Call — Credencementor" },
       {
         property: "og:description",
         content: "A 20-minute, no-pressure call to map your gaps and match you with a mentor.",
