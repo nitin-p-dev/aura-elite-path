@@ -19,13 +19,13 @@ import { useState } from "react";
 export const Route = createFileRoute("/apply-mentor")({
   head: () => ({
     meta: [
-      { title: "Apply as a Mentor — Credencementor" },
+      { title: "Apply as a Mentor — Aura Elite" },
       {
         name: "description",
         content:
-          "Join Credencementor as a mentor and help the next generation of JEE, IAT, CAT and GATE rankers. Flexible hours, revenue share, serious students.",
+          "Join Aura Elite as a mentor and help the next generation of JEE, IAT, CAT and GATE rankers. Flexible hours, revenue share, serious students.",
       },
-      { property: "og:title", content: "Apply as a Mentor — Credencementor" },
+      { property: "og:title", content: "Apply as a Mentor — Aura Elite" },
       {
         property: "og:description",
         content:
@@ -70,7 +70,7 @@ function ApplyMentor() {
             Teach what you already cracked.
           </h1>
           <p className="mt-4 max-w-xl text-lg text-muted-foreground">
-            Credencementor mentors are top rankers who work 1:1 and in small groups with serious aspirants.
+            Aura Elite mentors are top rankers who work 1:1 and in small groups with serious aspirants.
             Flexible hours, fair revenue share, and students who actually do the work.
           </p>
         </motion.div>

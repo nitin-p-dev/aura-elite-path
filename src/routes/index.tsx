@@ -18,13 +18,13 @@ import { StoriesCarousel } from "@/components/stories-carousel";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Credencementor — Elite Mentorship for JEE, IAT, CAT & GATE" },
+      { title: "Aura Elite — Elite Mentorship for JEE, IAT, CAT & GATE" },
       {
         name: "description",
         content:
           "1:1 mentorship from IISc, IIT and IIM toppers. Pick your exam, pick a tier, get matched, and follow a weekly structure that moves ranks.",
       },
-      { property: "og:title", content: "Credencementor — Elite Mentorship for JEE, IAT, CAT & GATE" },
+      { property: "og:title", content: "Aura Elite — Elite Mentorship for JEE, IAT, CAT & GATE" },
       {
         property: "og:description",
         content: "Mentors from IISc, IIT Bombay, IIT Madras and the top IIMs. Book a free call.",
@@ -74,7 +74,7 @@ function Home() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            Credencementor pairs serious JEE, IAT, CAT and GATE aspirants with mentors who have already
+            Aura Elite pairs serious JEE, IAT, CAT and GATE aspirants with mentors who have already
             cracked the paper — and gives you a weekly structure you can actually keep.
           </motion.p>
 
@@ -248,12 +248,12 @@ function Home() {
         </motion.div>
       </section>
 
-      {/* The Credencementor Promise */}
+      {/* The Aura Elite Promise */}
       <section className="px-4 py-16 sm:px-6">
         <motion.div {...fade} className="mx-auto max-w-6xl">
           <div className="text-center">
             <span className="inline-flex items-center gap-2 rounded-full bg-gold/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-gold">
-              <ShieldCheck className="h-3.5 w-3.5" /> The Credencementor Promise
+              <ShieldCheck className="h-3.5 w-3.5" /> The Aura Elite Promise
             </span>
             <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
               We only win when you win.
@@ -367,7 +367,7 @@ function Home() {
           <div className="relative">
             <h2 className="text-3xl font-semibold sm:text-4xl">Twenty minutes. Zero pressure.</h2>
             <p className="mx-auto mt-3 max-w-md text-muted-foreground">
-              Tell us where you're stuck. We'll tell you honestly whether Credencementor helps.
+              Tell us where you're stuck. We'll tell you honestly whether Aura Elite helps.
             </p>
             <Button asChild variant="gold" size="xl" className="mt-8">
               <Link to="/contact">Book a Free Call</Link>

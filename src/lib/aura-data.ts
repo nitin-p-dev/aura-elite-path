@@ -269,7 +269,7 @@ export const steps = [
 ];
 
 export const successStories = [
-  { name: "Ishan R.", exam: "JEE", delta: "AIR 21,400 → AIR 1,860", quote: "Credencementor replaced panic with a calendar." },
+  { name: "Ishan R.", exam: "JEE", delta: "AIR 21,400 → AIR 1,860", quote: "Aura Elite replaced panic with a calendar." },
   { name: "Meera J.", exam: "CAT", delta: "84 %ile → 99.4 %ile", quote: "One hour a week rebuilt my quant from scratch." },
   { name: "Harsh G.", exam: "GATE", delta: "AIR 4,300 → AIR 210", quote: "My mentor knew exactly which chapters to drop." },
   { name: "Aditi K.", exam: "IAT", delta: "Rank 2,100 → Rank 240", quote: "I finally understood what I was reading." },
