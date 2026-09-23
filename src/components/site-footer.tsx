@@ -7,7 +7,7 @@ export function SiteFooter() {
         <div>
           <div className="flex items-center gap-2">
             <span className="grid h-9 w-9 place-items-center rounded-full bg-linear-to-br from-gold-soft to-gold text-sm font-bold text-navy-deep">
-              A
+              C
             </span>
             <span className="font-display text-lg font-semibold">Credencementor</span>
           </div>

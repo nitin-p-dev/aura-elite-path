@@ -34,7 +34,7 @@ export function SiteHeader() {
         <div className="glass mx-auto flex max-w-6xl items-center gap-3 rounded-full px-4 py-2.5 shadow-soft sm:px-6">
           <Link to="/" className="flex min-w-0 items-center gap-2">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-linear-to-br from-gold-soft to-gold text-sm font-bold text-navy-deep">
-              A
+              C
             </span>
             <span className="truncate font-display text-lg font-semibold tracking-tight">Credencementor</span>
           </Link>
