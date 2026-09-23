@@ -9,13 +9,13 @@ import { tiers } from "@/lib/aura-data";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Tiers & Pricing — Aura Mentorship" },
+      { title: "Tiers & Pricing — Credencementor" },
       {
         name: "description",
         content:
-          "Compare Aura's Basic, General, Gold and Premium mentorship tiers: mentor access, batch size, weekly structure and price.",
+          "Compare Credencementor's Basic, General, Gold and Premium mentorship tiers: mentor access, batch size, weekly structure and price.",
       },
-      { property: "og:title", content: "Tiers & Pricing — Aura Mentorship" },
+      { property: "og:title", content: "Tiers & Pricing — Credencementor" },
       {
         property: "og:description",
         content: "Four tiers from light structure to a full 1:1 mentorship cabinet. No lock-in.",

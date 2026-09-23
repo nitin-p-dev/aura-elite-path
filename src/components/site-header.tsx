@@ -36,7 +36,7 @@ export function SiteHeader() {
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-linear-to-br from-gold-soft to-gold text-sm font-bold text-navy-deep">
               A
             </span>
-            <span className="truncate font-display text-lg font-semibold tracking-tight">Aura</span>
+            <span className="truncate font-display text-lg font-semibold tracking-tight">Credencementor</span>
           </Link>
 
           <nav className="ml-4 hidden items-center gap-1 lg:flex">

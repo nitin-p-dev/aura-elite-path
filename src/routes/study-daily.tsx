@@ -5,13 +5,13 @@ import { personaBySlug } from "@/lib/persona-data";
 export const Route = createFileRoute("/study-daily")({
   head: () => ({
     meta: [
-      { title: "Self-Study, With Structure — Aura Mentorship" },
+      { title: "Self-Study, With Structure — Credencementor" },
       {
         name: "description",
         content:
-          "No coaching, no feedback loop? Aura gives self-studiers a weekly sheet, fixed doubt windows and a shared syllabus tracker.",
+          "No coaching, no feedback loop? Credencementor gives self-studiers a weekly sheet, fixed doubt windows and a shared syllabus tracker.",
       },
-      { property: "og:title", content: "Self-Study, With Structure — Aura Mentorship" },
+      { property: "og:title", content: "Self-Study, With Structure — Credencementor" },
       {
         property: "og:description",
         content: "Weekly targets, doubt windows and pace tracking for aspirants preparing on their own.",

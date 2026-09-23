@@ -49,7 +49,7 @@ export const personas: Persona[] = [
     body: "No coaching, no feedback loop, plenty of doubt.",
     heading: "Self-study, with a witness",
     intro:
-      "Self-study wins when it has structure and correction. Aura supplies both without dragging you into a 200-student classroom.",
+      "Self-study wins when it has structure and correction. Credencementor supplies both without dragging you into a 200-student classroom.",
     symptoms: [
       "You decide the day's plan at the start of the day.",
       "Doubts sit unresolved for days.",
